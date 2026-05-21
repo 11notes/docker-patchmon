@@ -1,0 +1,20 @@
+name: tags
+on:
+  push:
+    tags:
+      - 'v*'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: setup etc for org.build.yml
+        run: |
+          echo "WORKFLOW_ETC_BASE64JSON=$(echo '{"unraid":true, "nobody":true}' | base64 -w 0)" >> "${GITHUB_ENV}"
+
+      - name: build container images
+        uses: benc-uk/workflow-dispatch@31e2b3319479a63f0ab15bf800eff9e913504e26 #v1.3.2
+        with:
+          workflow: org.build.yml
+          wait-for-completion: false
+          token: "${{ secrets.REPOSITORY_TOKEN }}"
+          inputs: '{ "ref":"${{ github.ref_name }}", "etc":"${{ env.WORKFLOW_ETC_BASE64JSON }}" }'

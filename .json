@@ -1,0 +1,24 @@
+{
+  "image": "11notes/patchmon",
+  "name": "patchmon",
+  "root": "/patchmon",
+  "semver": {
+    "version": "2.0.2"
+  },
+  "readme": {
+    "description": "run patchmon rootless and distroless.",
+    "introduction": "[PatchMon](https://github.com/PatchMon/PatchMon) (created by [PatchMon](https://github.com/PatchMon)) is an enterprise-grade platform that gives operations teams a single pane of glass to monitor, patch and secure their Linux fleet, with FreeBSD and Windows agent support.",
+    "built": {
+      "PatchMon": "https://github.com/PatchMon/PatchMon"
+    },
+    "distroless": {
+      "layers": [
+        "11notes/distroless",
+        "11notes/distroless:localhealth"
+      ]
+    },
+    "comparison": {
+      "image": "ghcr.io/patchmon/patchmon-server"
+    }
+  }
+}
