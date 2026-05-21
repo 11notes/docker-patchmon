@@ -120,7 +120,18 @@
         APP_ENV="production" \
         SSG_CONTENT_DIR="${APP_ROOT}/var/ssg-content" \
         AGENTS_DIR="${APP_ROOT}/src/agents" \
-        TRUST_PROXY="true"
+        DB_CONNECTION_LIMIT=50 \
+        DB_POOL_TIMEOUT=30 \
+        JWT_EXPIRES_IN="15m" \
+        JWT_REFRESH_EXPIRES_IN="1d" \
+        PASSWORD_MIN_LENGTH=12 \
+        PASSWORD_REQUIRE_UPPERCASE=false \
+        PASSWORD_REQUIRE_LOWERCASE=false \
+        PASSWORD_REQUIRE_NUMBER=false \
+        PASSWORD_REQUIRE_SPECIAL=false \
+        PASSWORD_RATE_LIMIT_MAX=3 \
+        MAX_LOGIN_ATTEMPTS=3 \
+        LOCKOUT_DURATION_MINUTES=120
 
   # :: multi-stage
     COPY --from=distroless / /
