@@ -23,7 +23,6 @@ services:
       DATABASE_URL: "postgresql://postgres:${POSTGRES_PASSWORD}@postgres:5432/postgres"
       REDIS_PASSWORD: "${REDIS_PASSWORD}"
       CORS_ORIGIN: "${CORS_ORIGIN}"
-      CORS_ORIGINS: "${CORS_ORIGINS}"
       JWT_SECRET: "${JWT_SECRET}"
     volumes:
       - "server.var:/patchmon/var"
