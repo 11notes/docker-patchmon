@@ -31,6 +31,9 @@ services:
     networks:
       frontend:
       backend:
+    # disable telemetry (also disabled in source code)
+    extra_hosts:
+      - "metrics.patchmon.cloud:127.0.0.1"
     restart: "always"
 
   postgres:

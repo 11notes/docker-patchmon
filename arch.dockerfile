@@ -48,6 +48,11 @@
   RUN set -ex; \
     eleven git clone ${BUILD_SRC} v${APP_VERSION};
 
+  RUN set -ex; \
+    cd ${BUILD_ROOT}; \
+    # disable telemetry by disabling function in code
+    sed -i '/sendMetrics(ctx context.Context/a \        return nil' ./server-source-code/internal/queue/workers.go;
+
   RUN set -eux; \
     cd ${BUILD_ROOT}/frontend; \
     npm install --ignore-scripts --legacy-peer-deps --no-audit --force; \

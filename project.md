@@ -12,6 +12,7 @@ ${{ github:> }}* ... this image runs read-only
 ${{ github:> }}* ... this image is automatically scanned for CVEs before and after publishing
 ${{ github:> }}* ... this image is created via a secure and pinned CI/CD process
 ${{ github:> }}* ... this image is very small
+${{ github:> }}* ... this image has telemetry disabled in code for your privacy
 
 If you value security, simplicity and optimizations to the extreme, then this image might be for you.
 
